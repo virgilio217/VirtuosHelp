@@ -1,0 +1,340 @@
+# //      \\                                                        //    //
+#  //    \\   \/  // //\    //     //    //  ////////  ////////     //    //  ////////  //  ////////
+#  //    \\   //  ////   ////////  //    //  //    //  //           //    //  //    //  //  //    //
+#   //  \\    //  ///       //     //    //  //    //  ////////     ////////  ////////  //  //    //
+#   //  \\    //  ///       //     //    //  //    //        //     //    //  //        //  //////// 
+#    //\\     //  //        //     //    //  //    //        //     //    //  //        //  //
+#     /\      //  //        //     ////////  ////////  ////////     //    //  ////////  //  //
+#
+#/////////////////////////////////////////////////////////////////////////////////////////////////////
+#////Version: 1.2
+#////////////////////
+#////Author: virgilio
+#////////////////////
+#////Download link: https://www.spigotmc.org/resources/virtuoshelper.79919/
+#////////////////////
+#////Documentation:
+#You can make 2 help pages. Each page is composed of a maximum of 10 lines. Leave '' empty and nothing will display in the chat for that line. Leave ' ' a space in between and the line will be blank. WARNING both the <COMMAND.TEXT> and the <MESSAGE.TEXT> must be left empty if you want to remove a line.
+#	Each line is formatted like this: <COMMAND> + <MESSAGE> 
+#		<COMMAND.TEXT> to format this text simply change BOLD, ITALIC, STRIKETHROUGH, UNDERLINED, OBFUSCATED to TRUE or FALSE.
+#			To add colors this text you must use these formats: AQUA, BLACK, BLUE, DARK_AQUA, DARK_BLUE, DARK_GRAY, DARK_GREEN, DARK_PURPLE, DARK_RED, GOLD, GRAY, GREEN, LIGHT_PURPLE, RED, WHITE, YELLOW.
+#
+#		<MESSAGE.TEXT> To format this you can just use standard colorcodes: &b, &0, &9, &3, &1, &8, &2, &5, &4, &6, &7, &a, &d, &c, &f, &e, and format codes: &l, &m, &n, &o, &k, &r. 
+#
+#        
+#Command1:  
+#  Text: '>>>'                 #---|
+#  Color: 'DARK_PURPLE'		   #|
+#  Bold: true				   #|
+#  Italic: false               #|
+#  Strikethrough: false        #|--- All this is to edit the format of the <COMMAND> string
+#  Underlined: false           #|
+#  Obfuscated: false           #|
+#  Hover: '&5&lNext page'	   #|
+#  Click: '/help2'	        #---|
+#
+#Message1:
+#  Text: '&e&d================= &6&lVirtuosHelp &d&l================ '
+#
+#
+#
+#Sorry the explaination is sort of confusionary but you should be able to figure it out by doing some testing. To reload this config file use: /virtuoshelpreload
+#
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#////First Help Page
+#///////////////////
+#////Command: /help
+#///////////////////
+#Line1
+Command1: 
+  Text: '>>>'               #<--- <COMMAND.TEXT>
+  Color: 'DARK_PURPLE'      #Use colorcodes in this format: AQUA, BLACK, BLUE, DARK_AQUA, etc..
+  Bold: true
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&5&lNext page'    #Use colorcodes in this format: &b, &0, &9, &3, etc...
+  Click: '/help2'
+Message1:
+  Text: '&e&d================= &6&lVirtuosHelp &d&l================ '       #<--- <MESSAGE.TEXT>
+  
+#Line2
+Command2: 
+  Text: '/balance'                                      #Dont use & colorcodes this should only be text.
+  Color: 'YELLOW'
+  Bold: false                                           #Set these to true or false to enable or disable accordingly each format for the <COMMAND.TEXT>
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false	
+  Hover: '&e/balance &d<player>'                        #You can use colorcodes here, this is the text that will be displayed when hovering over the <COMMAND.TEXT>
+  Click: '/balance <player>'                            #You cannot use colorcodes here, this is the text that will be suggested when clicking the <COMMAND.TEXT>
+Message2:
+  Text: ' &fView how much money a player own''s'        #Use colorcodes in this format: &b, &0, &9, &3, etc...
+
+#Line3
+Command3: 
+  Text: '/pay'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/pay &d<player> <amount>'
+  Click: '/pay <player> <amount>'
+Message3:
+  Text: ' &fTransfer money to another player'
+
+#Line4
+Command4: 
+  Text: '/tpa'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/tpa &d<player>'
+  Click: '/tpa <player>'
+Message4:
+  Text: ' &fAsk to teleport to a player'
+
+#Line5
+Command5: 
+  Text: '/tpahere'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/tpahere &d<player>'
+  Click: '/tpahere <player>'
+Message5:
+  Text: ' &fAsk to teleport a player to you'
+
+#Line6
+Command6: 
+  Text: '/sethome'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/sethome &d<name>'
+  Click: '/sethome <name>'
+Message6:
+  Text: ' &fSet your location as your home'
+
+#Line7
+Command7: 
+  Text: '/home'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/home &d<name>'
+  Click: '/home <name>'
+Message7:
+  Text: ' &fTeleport to your home'
+
+#Line8
+Command8: 
+  Text: '/message'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/message &d<player> <text>'
+  Click: '/message <player> <text>'
+Message8:
+  Text: ' &fMessage a player privately'
+
+#Line9
+Command9: 
+  Text: '/kit'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/kit &d<name>'
+  Click: '/kit <name>'
+Message9:
+  Text: ' &fObtain a kit'
+
+#Line10
+Command10: 
+  Text: '/warp'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/warp &d<name>'
+  Click: '/warp <name>'
+Message10:
+  Text: ' &fTeleport to a warp'
+  
+  
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#////Second Help Page
+#///////////////////
+#////Command: /help2
+#///////////////////
+ 
+#Command: /help2
+#Second help page
+#Line11
+Command11: 
+  Text: '<<<'
+  Color: 'DARK_PURPLE'
+  Bold: true
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&5&lPrevious page'
+  Click: '/help'
+Message11:
+  Text: '&e&d================= &6&lVirtuosHelp &d&l================ '
+
+#Line12
+Command12: 
+  Text: '/yourcommand'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/yourcommand &d<anything>'
+  Click: '/yourcommand <anything>'
+Message12:
+  Text: ' &fYou can write anything here'
+  
+#Line13
+Command13: 
+  Text: '/yourcommand'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/yourcommand &d<anything>'
+  Click: '/yourcommand <anything>'
+Message13:
+  Text: ' &fYou can write anything here'
+  
+#Line14
+Command14: 
+  Text: '/yourcommand'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/yourcommand &d<anything>'
+  Click: '/yourcommand <anything>'
+Message14:
+  Text: ' &fYou can write anything here'
+
+#Line15
+Command15: 
+  Text: '/yourcommand'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/yourcommand &d<anything>'
+  Click: '/yourcommand <anything>'
+Message15:
+  Text: ' &fYou can write anything here'
+  
+#Line16
+Command16: 
+  Text: '/yourcommand'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/yourcommand &d<anything>'
+  Click: '/yourcommand <anything>'
+Message16:
+  Text: ' &fYou can write anything here'
+  
+#Line17
+Command17: 
+  Text: '/yourcommand'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/yourcommand &d<anything>'
+  Click: '/yourcommand <anything>'
+Message17:
+  Text: ' &fYou can write anything here'
+  
+#Line18
+Command18: 
+  Text: '/yourcommand'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/yourcommand &d<anything>'
+  Click: '/yourcommand <anything>'
+Message18:
+  Text: ' &fYou can write anything here'
+
+#Line19
+Command19: 
+  Text: '/yourcommand'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/yourcommand &d<anything>'
+  Click: '/yourcommand <anything>'
+Message19:
+  Text: ' &fYou can write anything here'
+  
+#Line20
+Command20: 
+  Text: '/yourcommand'
+  Color: 'YELLOW'
+  Bold: false
+  Italic: false
+  Strikethrough: false
+  Underlined: false
+  Obfuscated: false
+  Hover: '&e/yourcommand &d<anything>'
+  Click: '/yourcommand <anything>'
+Message20:
+  Text: ' &fYou can write anything here'
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#////More features are coming!
+#///////////////////
+#////Don't forget to leave a review if you like this plugin! Or leave any suggestions or bugs you have found in the discussion section! https://www.spigotmc.org/threads/virtuoshelper.444119/
+#///////////////////

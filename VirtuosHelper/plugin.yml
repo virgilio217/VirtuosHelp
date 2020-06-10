@@ -1,0 +1,18 @@
+version: 1.2
+name: VirtuosHelper
+main: com.virgilio.virtuoshelper.Main
+author: Virgilio
+description: Get a list of avaible commands
+commands:
+  help:
+    aliases: []
+    description: View a list of commands avaible on this server!
+  help2:
+    aliases: []
+    description: View the second page of commands avaible!
+  virtuoshelp:
+    aliases: [vh]
+    description: View info about the plugin VirtuosHelper!
+  virtuoshelpreload:
+    aliases: [vhreload]
+    description: View info about the plugin VirtuosHelper!

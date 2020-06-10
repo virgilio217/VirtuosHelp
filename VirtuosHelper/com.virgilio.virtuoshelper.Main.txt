@@ -1,0 +1,547 @@
+package com.virgilio.virtuoshelper;
+
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
+
+public class Main extends JavaPlugin implements Listener {
+	
+	@Override
+	public void onEnable() {
+	    this.getLogger().info("VirtuosHelper has been enabled!");
+		
+		this.getConfig().options().copyDefaults();
+		saveDefaultConfig();
+	    
+		Bukkit.getPluginManager().registerEvents(this, this);
+	}
+	@Override  
+	public void onDisable() {
+		this.getLogger().info("VirtuosHelper has been disabled!");
+		
+		saveDefaultConfig();
+	}
+
+	@SuppressWarnings("unlikely-arg-type")
+	public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
+		
+		Player player = (Player) sender;
+
+		TextComponent line1message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message1.Text"))));
+		TextComponent line2message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message2.Text"))));
+		TextComponent line3message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message3.Text"))));
+		TextComponent line4message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message4.Text"))));
+		TextComponent line5message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message5.Text"))));
+		TextComponent line6message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message6.Text"))));
+		TextComponent line7message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message7.Text"))));
+		TextComponent line8message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message8.Text"))));
+		TextComponent line9message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message9.Text"))));
+		TextComponent line10message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message10.Text"))));
+		
+		ChatColor cmd1color = ChatColor.valueOf(getConfig().getString("Command1.Color"));
+		ChatColor cmd2color = ChatColor.valueOf(getConfig().getString("Command2.Color"));
+		ChatColor cmd3color = ChatColor.valueOf(getConfig().getString("Command3.Color"));
+		ChatColor cmd4color = ChatColor.valueOf(getConfig().getString("Command4.Color"));
+		ChatColor cmd5color = ChatColor.valueOf(getConfig().getString("Command5.Color"));
+		ChatColor cmd6color = ChatColor.valueOf(getConfig().getString("Command6.Color"));
+		ChatColor cmd7color = ChatColor.valueOf(getConfig().getString("Command7.Color"));
+		ChatColor cmd8color = ChatColor.valueOf(getConfig().getString("Command8.Color"));
+		ChatColor cmd9color = ChatColor.valueOf(getConfig().getString("Command9.Color"));
+		ChatColor cmd10color = ChatColor.valueOf(getConfig().getString("Command10.Color"));
+		
+		Boolean cmd1bold = getConfig().getBoolean("Command1.Bold");
+		Boolean cmd2bold = getConfig().getBoolean("Command2.Bold");
+		Boolean cmd3bold = getConfig().getBoolean("Command3.Bold");
+		Boolean cmd4bold = getConfig().getBoolean("Command4.Bold");
+		Boolean cmd5bold = getConfig().getBoolean("Command5.Bold");
+		Boolean cmd6bold = getConfig().getBoolean("Command6.Bold");
+		Boolean cmd7bold = getConfig().getBoolean("Command7.Bold");
+		Boolean cmd8bold = getConfig().getBoolean("Command8.Bold");
+		Boolean cmd9bold = getConfig().getBoolean("Command9.Bold");
+		Boolean cmd10bold = getConfig().getBoolean("Command10.Bold");
+		
+		Boolean cmd1italic = getConfig().getBoolean("Command1.Italic");
+		Boolean cmd2italic = getConfig().getBoolean("Command2.Italic");
+		Boolean cmd3italic = getConfig().getBoolean("Command3.Italic");
+		Boolean cmd4italic = getConfig().getBoolean("Command4.Italic");
+		Boolean cmd5italic = getConfig().getBoolean("Command5.Italic");
+		Boolean cmd6italic = getConfig().getBoolean("Command6.Italic");
+		Boolean cmd7italic = getConfig().getBoolean("Command7.Italic");
+		Boolean cmd8italic = getConfig().getBoolean("Command8.Italic");
+		Boolean cmd9italic = getConfig().getBoolean("Command9.Italic");
+		Boolean cmd10italic = getConfig().getBoolean("Command10.Italic");
+		
+		Boolean cmd1underlined = getConfig().getBoolean("Command1.Underlined");
+		Boolean cmd2underlined = getConfig().getBoolean("Command2.Underlined");
+		Boolean cmd3underlined = getConfig().getBoolean("Command3.Underlined");
+		Boolean cmd4underlined = getConfig().getBoolean("Command4.Underlined");
+		Boolean cmd5underlined = getConfig().getBoolean("Command5.Underlined");
+		Boolean cmd6underlined = getConfig().getBoolean("Command6.Underlined");
+		Boolean cmd7underlined = getConfig().getBoolean("Command7.Underlined");
+		Boolean cmd8underlined = getConfig().getBoolean("Command8.Underlined");
+		Boolean cmd9underlined = getConfig().getBoolean("Command9.Underlined");
+		Boolean cmd10underlined = getConfig().getBoolean("Command10.Underlined");
+		
+		Boolean cmd1strikethrough = getConfig().getBoolean("Command1.Strikethrough");
+		Boolean cmd2strikethrough = getConfig().getBoolean("Command2.Strikethrough");
+		Boolean cmd3strikethrough = getConfig().getBoolean("Command3.Strikethrough");
+		Boolean cmd4strikethrough = getConfig().getBoolean("Command4.Strikethrough");
+		Boolean cmd5strikethrough = getConfig().getBoolean("Command5.Strikethrough");
+		Boolean cmd6strikethrough = getConfig().getBoolean("Command6.Strikethrough");
+		Boolean cmd7strikethrough = getConfig().getBoolean("Command7.Strikethrough");
+		Boolean cmd8strikethrough = getConfig().getBoolean("Command8.Strikethrough");
+		Boolean cmd9strikethrough = getConfig().getBoolean("Command9.Strikethrough");
+		Boolean cmd10strikethrough = getConfig().getBoolean("Command10.Strikethrough");
+		
+		Boolean cmd1obfuscated = getConfig().getBoolean("Command1.Obfuscated");
+		Boolean cmd2obfuscated = getConfig().getBoolean("Command2.Obfuscated");
+		Boolean cmd3obfuscated = getConfig().getBoolean("Command3.Obfuscated");
+		Boolean cmd4obfuscated = getConfig().getBoolean("Command4.Obfuscated");
+		Boolean cmd5obfuscated = getConfig().getBoolean("Command5.Obfuscated");
+		Boolean cmd6obfuscated = getConfig().getBoolean("Command6.Obfuscated");
+		Boolean cmd7obfuscated = getConfig().getBoolean("Command7.Obfuscated");
+		Boolean cmd8obfuscated = getConfig().getBoolean("Command8.Obfuscated");
+		Boolean cmd9obfuscated = getConfig().getBoolean("Command9.Obfuscated");
+		Boolean cmd10obfuscated = getConfig().getBoolean("Command10.Obfuscated");
+		
+		ComponentBuilder line1hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command1.Hover")));
+		ComponentBuilder line2hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command2.Hover")));
+		ComponentBuilder line3hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command3.Hover")));
+		ComponentBuilder line4hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command4.Hover")));
+		ComponentBuilder line5hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command5.Hover")));
+		ComponentBuilder line6hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command6.Hover")));
+		ComponentBuilder line7hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command7.Hover")));
+		ComponentBuilder line8hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command8.Hover")));
+		ComponentBuilder line9hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command9.Hover")));
+		ComponentBuilder line10hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command10.Hover")));
+		
+		String line1click = (this.getConfig().getString("Command1.Click"));
+		String line2click = (this.getConfig().getString("Command2.Click"));
+		String line3click = (this.getConfig().getString("Command3.Click"));
+		String line4click = (this.getConfig().getString("Command4.Click"));
+		String line5click = (this.getConfig().getString("Command5.Click"));
+		String line6click = (this.getConfig().getString("Command6.Click"));
+		String line7click = (this.getConfig().getString("Command7.Click"));
+		String line8click = (this.getConfig().getString("Command8.Click"));
+		String line9click = (this.getConfig().getString("Command9.Click"));
+		String line10click = (this.getConfig().getString("Command10.Click"));
+
+		TextComponent line1command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command1.Text"))));
+		line1command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line1hover).create())); 
+		line1command.setClickEvent(new ClickEvent( ClickEvent.Action.RUN_COMMAND, line1click));
+		line1command.setColor(cmd1color);
+		line1command.setBold(cmd1bold);
+		line1command.setItalic(cmd1italic);
+		line1command.setUnderlined(cmd1underlined);
+		line1command.setStrikethrough(cmd1strikethrough);
+		line1command.setObfuscated(cmd1obfuscated);
+		line1message.addExtra(line1command);
+		
+		TextComponent line2command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command2.Text"))));
+		line2command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line2hover).create())); 
+		line2command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line2click));
+		line2command.setColor(cmd2color);
+		line2command.setBold(cmd2bold);
+		line2command.setItalic(cmd2italic);
+		line2command.setUnderlined(cmd2underlined);
+		line2command.setStrikethrough(cmd2strikethrough);
+		line2command.setObfuscated(cmd2obfuscated);
+		line2command.addExtra(line2message);
+		
+		TextComponent line3command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command3.Text"))));
+		line3command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line3hover).create())); 
+		line3command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line3click));
+		line3command.setColor(cmd3color);
+		line3command.setBold(cmd3bold);
+		line3command.setItalic(cmd3italic);
+		line3command.setUnderlined(cmd3underlined);
+		line3command.setStrikethrough(cmd3strikethrough);
+		line3command.setObfuscated(cmd3obfuscated);
+		line3command.addExtra(line3message);
+		
+		TextComponent line4command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command4.Text"))));
+		line4command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line4hover).create())); 
+		line4command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line4click));
+		line4command.setColor(cmd4color);
+		line4command.setBold(cmd4bold);
+		line4command.setItalic(cmd4italic);
+		line4command.setUnderlined(cmd4underlined);
+		line4command.setStrikethrough(cmd4strikethrough);
+		line4command.setObfuscated(cmd4obfuscated);
+		line4command.addExtra(line4message);
+		
+		TextComponent line5command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command5.Text"))));
+		line5command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line5hover).create())); 
+		line5command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line5click));
+		line5command.setColor(cmd5color);
+		line5command.setBold(cmd5bold);
+		line5command.setItalic(cmd5italic);
+		line5command.setUnderlined(cmd5underlined);
+		line5command.setStrikethrough(cmd5strikethrough);
+		line5command.setObfuscated(cmd5obfuscated);
+		line5command.addExtra(line5message);
+		
+		TextComponent line6command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command6.Text"))));
+		line6command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line6hover).create())); 
+		line6command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line6click));
+		line6command.setColor(cmd6color);
+		line6command.setBold(cmd6bold);
+		line6command.setItalic(cmd6italic);
+		line6command.setUnderlined(cmd6underlined);
+		line6command.setStrikethrough(cmd6strikethrough);
+		line6command.setObfuscated(cmd6obfuscated);
+		line6command.addExtra(line6message);
+		
+		TextComponent line7command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command7.Text"))));
+		line7command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line7hover).create())); 
+		line7command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line7click));
+		line7command.setColor(cmd7color);
+		line7command.setBold(cmd7bold);
+		line7command.setItalic(cmd7italic);
+		line7command.setUnderlined(cmd7underlined);
+		line7command.setStrikethrough(cmd7strikethrough);
+		line7command.setObfuscated(cmd7obfuscated);
+		line7command.addExtra(line7message);
+		
+		TextComponent line8command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command8.Text"))));
+		line8command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line8hover).create())); 
+		line8command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line8click));
+		line8command.setColor(cmd8color);
+		line8command.setBold(cmd8bold);
+		line8command.setItalic(cmd8italic);
+		line8command.setUnderlined(cmd8underlined);
+		line8command.setStrikethrough(cmd8strikethrough);
+		line8command.setObfuscated(cmd8obfuscated);
+		line8command.addExtra(line8message);
+		
+		TextComponent line9command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command9.Text"))));
+		line9command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line9hover).create())); 
+		line9command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line9click));
+		line9command.setColor(cmd9color);
+		line9command.setBold(cmd9bold);
+		line9command.setItalic(cmd9italic);
+		line9command.setUnderlined(cmd9underlined);
+		line9command.setStrikethrough(cmd9strikethrough);
+		line9command.setObfuscated(cmd9obfuscated);
+		line9command.addExtra(line9message);
+		
+		TextComponent line10command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command10.Text"))));
+		line10command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line10hover).create())); 
+		line10command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line10click));
+		line10command.setColor(cmd10color);
+		line10command.setBold(cmd10bold);
+		line10command.setItalic(cmd10italic);
+		line10command.setUnderlined(cmd10underlined);
+		line10command.setStrikethrough(cmd10strikethrough);
+		line10command.setObfuscated(cmd10obfuscated);
+		line10command.addExtra(line10message);
+
+		if (cmd.getName().equalsIgnoreCase("help")) {
+			if (sender instanceof Player) {
+				if (!line1message.equals("") && (!line1command.equals(""))) {
+					player.spigot().sendMessage(line1message);
+				}
+				if (!line2message.equals("") && (!line2command.equals(""))) {
+					player.spigot().sendMessage(line2command);
+				}
+				if (!line3message.equals("") && (!line3command.equals(""))) {
+					player.spigot().sendMessage(line3command);
+				}
+				if (!line4message.equals("") && (!line4command.equals(""))) {
+					player.spigot().sendMessage(line4command);
+				}
+				if (!line5message.equals("") && (!line5command.equals(""))) {
+					player.spigot().sendMessage(line5command);
+				}
+				if (!line6message.equals("") && (!line6command.equals(""))) {
+					player.spigot().sendMessage(line6command);
+				}
+				if (!line7message.equals("") && (!line7command.equals(""))) {
+					player.spigot().sendMessage(line7command);
+				}
+				if (!line8message.equals("") && (!line8command.equals(""))) {
+					player.spigot().sendMessage(line8command);
+				}	
+				if (!line9message.equals("") && (!line9command.equals(""))) {
+					player.spigot().sendMessage(line9command);
+				}
+				if (!line10message.equals("") && (!line10command.equals(""))) {
+					player.spigot().sendMessage(line10command);
+				}
+
+			} else {
+				System.out.println("You cannot use this command in the console");
+			}
+		}
+		
+		TextComponent line11message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message11.Text"))));
+		TextComponent line12message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message12.Text"))));
+		TextComponent line13message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message13.Text"))));
+		TextComponent line14message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message14.Text"))));
+		TextComponent line15message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message15.Text"))));
+		TextComponent line16message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message16.Text"))));
+		TextComponent line17message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message17.Text"))));
+		TextComponent line18message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message18.Text"))));
+		TextComponent line19message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message19.Text"))));
+		TextComponent line20message = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Message20.Text"))));
+		
+		ChatColor cmd11color = ChatColor.valueOf(getConfig().getString("Command11.Color"));
+		ChatColor cmd12color = ChatColor.valueOf(getConfig().getString("Command12.Color"));
+		ChatColor cmd13color = ChatColor.valueOf(getConfig().getString("Command13.Color"));
+		ChatColor cmd14color = ChatColor.valueOf(getConfig().getString("Command14.Color"));
+		ChatColor cmd15color = ChatColor.valueOf(getConfig().getString("Command15.Color"));
+		ChatColor cmd16color = ChatColor.valueOf(getConfig().getString("Command16.Color"));
+		ChatColor cmd17color = ChatColor.valueOf(getConfig().getString("Command17.Color"));
+		ChatColor cmd18color = ChatColor.valueOf(getConfig().getString("Command18.Color"));
+		ChatColor cmd19color = ChatColor.valueOf(getConfig().getString("Command19.Color"));
+		ChatColor cmd20color = ChatColor.valueOf(getConfig().getString("Command20.Color"));
+		
+		Boolean cmd11bold = getConfig().getBoolean("Command11.Bold");
+		Boolean cmd12bold = getConfig().getBoolean("Command12.Bold");
+		Boolean cmd13bold = getConfig().getBoolean("Command13.Bold");
+		Boolean cmd14bold = getConfig().getBoolean("Command14.Bold");
+		Boolean cmd15bold = getConfig().getBoolean("Command15.Bold");
+		Boolean cmd16bold = getConfig().getBoolean("Command16.Bold");
+		Boolean cmd17bold = getConfig().getBoolean("Command17.Bold");
+		Boolean cmd18bold = getConfig().getBoolean("Command18.Bold");
+		Boolean cmd19bold = getConfig().getBoolean("Command19.Bold");
+		Boolean cmd20bold = getConfig().getBoolean("Command20.Bold");
+		
+		Boolean cmd11italic = getConfig().getBoolean("Command11.Italic");
+		Boolean cmd12italic = getConfig().getBoolean("Command12.Italic");
+		Boolean cmd13italic = getConfig().getBoolean("Command13.Italic");
+		Boolean cmd14italic = getConfig().getBoolean("Command14.Italic");
+		Boolean cmd15italic = getConfig().getBoolean("Command15.Italic");
+		Boolean cmd16italic = getConfig().getBoolean("Command16.Italic");
+		Boolean cmd17italic = getConfig().getBoolean("Command17.Italic");
+		Boolean cmd18italic = getConfig().getBoolean("Command18.Italic");
+		Boolean cmd19italic = getConfig().getBoolean("Command19.Italic");
+		Boolean cmd20italic = getConfig().getBoolean("Command20.Italic");
+		
+		Boolean cmd11underlined = getConfig().getBoolean("Command11.Underlined");
+		Boolean cmd12underlined = getConfig().getBoolean("Command12.Underlined");
+		Boolean cmd13underlined = getConfig().getBoolean("Command13.Underlined");
+		Boolean cmd14underlined = getConfig().getBoolean("Command14.Underlined");
+		Boolean cmd15underlined = getConfig().getBoolean("Command15.Underlined");
+		Boolean cmd16underlined = getConfig().getBoolean("Command16.Underlined");
+		Boolean cmd17underlined = getConfig().getBoolean("Command17.Underlined");
+		Boolean cmd18underlined = getConfig().getBoolean("Command18.Underlined");
+		Boolean cmd19underlined = getConfig().getBoolean("Command19.Underlined");
+		Boolean cmd20underlined = getConfig().getBoolean("Command20.Underlined");
+		
+		Boolean cmd11strikethrough = getConfig().getBoolean("Command11.Strikethrough");
+		Boolean cmd12strikethrough = getConfig().getBoolean("Command12.Strikethrough");
+		Boolean cmd13strikethrough = getConfig().getBoolean("Command13.Strikethrough");
+		Boolean cmd14strikethrough = getConfig().getBoolean("Command14.Strikethrough");
+		Boolean cmd15strikethrough = getConfig().getBoolean("Command15.Strikethrough");
+		Boolean cmd16strikethrough = getConfig().getBoolean("Command16.Strikethrough");
+		Boolean cmd17strikethrough = getConfig().getBoolean("Command17.Strikethrough");
+		Boolean cmd18strikethrough = getConfig().getBoolean("Command18.Strikethrough");
+		Boolean cmd19strikethrough = getConfig().getBoolean("Command19.Strikethrough");
+		Boolean cmd20strikethrough = getConfig().getBoolean("Command20.Strikethrough");
+		
+		Boolean cmd11obfuscated = getConfig().getBoolean("Command11.Obfuscated");
+		Boolean cmd12obfuscated = getConfig().getBoolean("Command12.Obfuscated");
+		Boolean cmd13obfuscated = getConfig().getBoolean("Command13.Obfuscated");
+		Boolean cmd14obfuscated = getConfig().getBoolean("Command14.Obfuscated");
+		Boolean cmd15obfuscated = getConfig().getBoolean("Command15.Obfuscated");
+		Boolean cmd16obfuscated = getConfig().getBoolean("Command16.Obfuscated");
+		Boolean cmd17obfuscated = getConfig().getBoolean("Command17.Obfuscated");
+		Boolean cmd18obfuscated = getConfig().getBoolean("Command18.Obfuscated");
+		Boolean cmd19obfuscated = getConfig().getBoolean("Command19.Obfuscated");
+		Boolean cmd20obfuscated = getConfig().getBoolean("Command20.Obfuscated");
+		
+		ComponentBuilder line11hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command11.Hover")));
+		ComponentBuilder line12hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command12.Hover")));
+		ComponentBuilder line13hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command13.Hover")));
+		ComponentBuilder line14hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command14.Hover")));
+		ComponentBuilder line15hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command15.Hover")));
+		ComponentBuilder line16hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command16.Hover")));
+		ComponentBuilder line17hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command17.Hover")));
+		ComponentBuilder line18hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command18.Hover")));
+		ComponentBuilder line19hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command19.Hover")));
+		ComponentBuilder line20hover = new ComponentBuilder("").appendLegacy(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command20.Hover")));
+		
+		String line11click = (this.getConfig().getString("Command11.Click"));
+		String line12click = (this.getConfig().getString("Command12.Click"));
+		String line13click = (this.getConfig().getString("Command13.Click"));
+		String line14click = (this.getConfig().getString("Command14.Click"));
+		String line15click = (this.getConfig().getString("Command15.Click"));
+		String line16click = (this.getConfig().getString("Command16.Click"));
+		String line17click = (this.getConfig().getString("Command17.Click"));
+		String line18click = (this.getConfig().getString("Command18.Click"));
+		String line19click = (this.getConfig().getString("Command19.Click"));
+		String line20click = (this.getConfig().getString("Command20.Click"));
+
+		TextComponent line11command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command11.Text"))));
+		line11command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line11hover).create())); 
+		line11command.setClickEvent(new ClickEvent( ClickEvent.Action.RUN_COMMAND, line11click));
+		line11command.setColor(cmd11color);
+		line11command.setBold(cmd11bold);
+		line11command.setItalic(cmd11italic);
+		line11command.setUnderlined(cmd11underlined);
+		line11command.setStrikethrough(cmd11strikethrough);
+		line11command.setObfuscated(cmd11obfuscated);
+		line11message.addExtra(line11command);
+		
+		TextComponent line12command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command12.Text"))));
+		line12command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line12hover).create())); 
+		line12command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line12click));
+		line12command.setColor(cmd12color);
+		line12command.setBold(cmd12bold);
+		line12command.setItalic(cmd12italic);
+		line12command.setUnderlined(cmd12underlined);
+		line12command.setStrikethrough(cmd12strikethrough);
+		line12command.setObfuscated(cmd12obfuscated);
+		line12command.addExtra(line12message);
+		
+		TextComponent line13command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command13.Text"))));
+		line13command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line13hover).create())); 
+		line13command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line13click));
+		line13command.setColor(cmd13color);
+		line13command.setBold(cmd13bold);
+		line13command.setItalic(cmd13italic);
+		line13command.setUnderlined(cmd13underlined);
+		line13command.setStrikethrough(cmd13strikethrough);
+		line13command.setObfuscated(cmd13obfuscated);
+		line13command.addExtra(line13message);
+		
+		TextComponent line14command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command14.Text"))));
+		line14command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line14hover).create())); 
+		line14command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line14click));
+		line14command.setColor(cmd14color);
+		line14command.setBold(cmd14bold);
+		line14command.setItalic(cmd14italic);
+		line14command.setUnderlined(cmd14underlined);
+		line14command.setStrikethrough(cmd14strikethrough);
+		line14command.setObfuscated(cmd14obfuscated);
+		line14command.addExtra(line14message);
+		
+		TextComponent line15command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command15.Text"))));
+		line15command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line15hover).create())); 
+		line15command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line15click));
+		line15command.setColor(cmd15color);
+		line15command.setBold(cmd15bold);
+		line15command.setItalic(cmd15italic);
+		line15command.setUnderlined(cmd15underlined);
+		line15command.setStrikethrough(cmd15strikethrough);
+		line15command.setObfuscated(cmd15obfuscated);
+		line15command.addExtra(line15message);
+		
+		TextComponent line16command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command16.Text"))));
+		line16command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line16hover).create())); 
+		line16command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line16click));
+		line16command.setColor(cmd16color);
+		line16command.setBold(cmd16bold);
+		line16command.setItalic(cmd16italic);
+		line16command.setUnderlined(cmd16underlined);
+		line16command.setStrikethrough(cmd16strikethrough);
+		line16command.setObfuscated(cmd16obfuscated);
+		line16command.addExtra(line16message);
+		
+		TextComponent line17command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command17.Text"))));
+		line17command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line17hover).create())); 
+		line17command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line17click));
+		line17command.setColor(cmd17color);
+		line17command.setBold(cmd17bold);
+		line17command.setItalic(cmd17italic);
+		line17command.setUnderlined(cmd17underlined);
+		line17command.setStrikethrough(cmd17strikethrough);
+		line17command.setObfuscated(cmd17obfuscated);
+		line17command.addExtra(line17message);
+		
+		TextComponent line18command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command18.Text"))));
+		line18command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line18hover).create())); 
+		line18command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line18click));
+		line18command.setColor(cmd18color);
+		line18command.setBold(cmd18bold);
+		line18command.setItalic(cmd18italic);
+		line18command.setUnderlined(cmd18underlined);
+		line18command.setStrikethrough(cmd18strikethrough);
+		line18command.setObfuscated(cmd18obfuscated);
+		line18command.addExtra(line18message);
+		
+		TextComponent line19command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command19.Text"))));
+		line19command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line19hover).create())); 
+		line19command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line19click));
+		line19command.setColor(cmd19color);
+		line19command.setBold(cmd19bold);
+		line19command.setItalic(cmd19italic);
+		line19command.setUnderlined(cmd19underlined);
+		line19command.setStrikethrough(cmd19strikethrough);
+		line19command.setObfuscated(cmd19obfuscated);
+		line19command.addExtra(line19message);
+		
+		TextComponent line20command = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("Command20.Text"))));
+		line20command.setHoverEvent(new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(line20hover).create())); 
+		line20command.setClickEvent(new ClickEvent( ClickEvent.Action.SUGGEST_COMMAND, line20click));
+		line20command.setColor(cmd20color);
+		line20command.setBold(cmd20bold);
+		line20command.setItalic(cmd20italic);
+		line20command.setUnderlined(cmd20underlined);
+		line20command.setStrikethrough(cmd20strikethrough);
+		line20command.setObfuscated(cmd20obfuscated);
+		line20command.addExtra(line20message);
+
+		if (cmd.getName().equalsIgnoreCase("help2")) {
+			if (sender instanceof Player) {
+				if (!line11message.equals("") && (!line11command.equals(""))) {
+					player.spigot().sendMessage(line11message);
+				}
+				if (!line12message.equals("") && (!line12command.equals(""))) {
+					player.spigot().sendMessage(line12command);
+				}
+				if (!line13message.equals("") && (!line13command.equals(""))) {
+					player.spigot().sendMessage(line13command);
+				}
+				if (!line14message.equals("") && (!line14command.equals(""))) {
+					player.spigot().sendMessage(line14command);
+				}
+				if (!line15message.equals("") && (!line15command.equals(""))) {
+					player.spigot().sendMessage(line15command);
+				}
+				if (!line16message.equals("") && (!line16command.equals(""))) {
+					player.spigot().sendMessage(line16command);
+				}
+				if (!line17message.equals("") && (!line17command.equals(""))) {
+					player.spigot().sendMessage(line17command);
+				}
+				if (!line18message.equals("") && (!line18command.equals(""))) {
+					player.spigot().sendMessage(line18command);
+				}
+				if (!line19message.equals("") && (!line19command.equals(""))) {
+					player.spigot().sendMessage(line19command);
+				}
+				if (!line20message.equals("") && (!line20command.equals(""))) {
+					player.spigot().sendMessage(line20command);
+				}
+			} else {
+				System.out.println("You cannot use this command in the console");
+			}
+		}
+		if (cmd.getName().equalsIgnoreCase("virtuoshelp")) {	
+			if (sender instanceof Player) {
+				if (player.hasPermission("virtuoshelper.operator"));
+					player.sendMessage(ChatColor.YELLOW + "VirtuosHelp");
+					player.sendMessage(ChatColor.YELLOW + "Version: " + ChatColor.WHITE + "1.2");
+					player.sendMessage(ChatColor.YELLOW + "Author: " + ChatColor.WHITE + "Virgilio");
+					player.sendMessage(ChatColor.YELLOW + "Commands: " + ChatColor.WHITE + "/vh, /virtuoshelp, /help, help 2");
+				}
+			}
+		if (cmd.getName().equalsIgnoreCase("virtuoshelpreload")) {
+			if (sender instanceof Player)
+				this.reloadConfig();
+				player.sendMessage(ChatColor.GREEN + "Config file successfully reloaded");
+		}	
+	return false;
+	}
+}	
